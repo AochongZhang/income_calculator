@@ -23,11 +23,11 @@
 
         <div class="input-group pl-3 pr-3 mt-3 mb-3">
             <div class="input-group-prepend"><span class="input-group-text">本金</span></div>
-            <input type="text" class="form-control" placeholder="请输入本金" v-model="principalInput">
+            <input type="number" min="0" class="form-control" placeholder="请输入本金" v-model="principalInput">
         </div>
         <div class="input-group pl-3 pr-3 mt-3 mb-3">
             <div class="input-group-prepend"><span class="input-group-text">投资天数</span></div>
-            <input type="text" class="form-control" placeholder="请输入投资天数" v-model="dayNumberInput">
+            <input type="number" min="0" class="form-control" placeholder="请输入投资天数" v-model="dayNumberInput">
         </div>
 
         <div class="input-group pl-3 pr-3 mt-3 mb-3">
@@ -40,7 +40,7 @@
                 <option value="annualizedIncome">年收益</option>
                 <option value="annualRate">年收益率%</option>
             </select>
-            <input type="text" class="form-control" placeholder="请输入" v-model="selectInput">
+            <input type="number" min="0" class="form-control" placeholder="请输入" v-model="selectInput">
         </div>
 
         <table class="table table table-striped">
