@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>理财收益计算器</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+<div id="app" class="container-fluid pr-0 pl-0">
+    <nav class="navbar navbar-dark bg-dark shadow">
+        <a class="navbar-brand" href="#">理财收益计算器</a>
+        <button type="button" class="btn btn-primary" @click="calc">计算</button>
+    </nav>
+
+    <div class="alert alert-danger" role="alert" v-if="showAlert">
+        {{ alertMsg }}
+    </div>
+
+    <div class="input-group pl-3 pr-3 mt-3 mb-3">
+        <div class="input-group-prepend"><span class="input-group-text">本金</span></div>
+        <input type="text" class="form-control" placeholder="请输入本金" v-model="principalInput">
+    </div>
+    <div class="input-group pl-3 pr-3 mt-3 mb-3">
+        <div class="input-group-prepend"><span class="input-group-text">投资天数</span></div>
+        <input type="text" class="form-control" placeholder="请输入投资天数" v-model="dayNumberInput">
+    </div>
+
+    <div class="input-group pl-3 pr-3 mt-3 mb-3">
+        <select class="custom-select" v-model="selectType">
+            <option selected value="null">请选择一项输入</option>
+            <option value="dailyIncome">日收益</option>
+            <option value="dailyIncomeRate">日收益率%</option>
+            <option value="income">总收益</option>
+            <option value="incomeRate">总收益率%</option>
+            <option value="annualizedIncome">年收益</option>
+            <option value="annualRate">年收益率%</option>
+        </select>
+        <input type="text" class="form-control" placeholder="请输入" v-model="selectInput">
+    </div>
+
+    <table class="table table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">类型</th>
+            <th scope="col">值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">本金</th>
+            <td>{{ principal }}</td>
+        </tr>
+        <tr>
+            <th scope="row">平均日收益</th>
+            <td>{{ dailyIncomeView }}</td>
+        </tr>
+        <tr>
+            <th scope="row">平均日收益率</th>
+            <td>{{ dailyIncomeRateView }}%</td>
+        </tr>
+        <tr>
+            <th scope="row">投资天数</th>
+            <td>{{ dayNumber }}</td>
+        </tr>
+        <tr>
+            <th scope="row">总收益</th>
+            <td>{{ incomeView }}</td>
+        </tr>
+        <tr>
+            <th scope="row">总收益率</th>
+            <td>{{ incomeRateView }}%</td>
+        </tr>
+        <tr>
+            <th scope="row">年化收益</th>
+            <td>{{ annualizedIncomeView }}</td>
+        </tr>
+        <tr>
+            <th scope="row">年化收益率</th>
+            <td>{{ annualRateView }}%</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mb-3">©AochongZhang 2020</div>
+</div>
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/decimal.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+
+</html>
